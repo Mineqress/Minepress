@@ -2,20 +2,23 @@
 import {Bot, BotOptions, createBot} from "mineflayer"
 import {Chance} from "chance";
 const chance = new Chance();
+class Minepress {
+    private bot?: Bot;
+    private lastMsg?: string;
+    joinServer(server: BotOptions) {
+        this.bot = createBot({
+            ...server,
+            username: chance.name().replace(" ", "").substring(0, 16)
+        })
+        this.setupBot()
+    }
 
-let bot: Bot;
-let lastMsg: string;
-function joinServer(server: BotOptions) {
-    bot = createBot({
-        ...server,
-        username: chance.name().replace(" ", "").substring(0, 16)
-    })
-    setupBot()
+    private setupBot(){
+        this.bot!!.on("chat", (msg) => {
+            this.lastMsg = msg;
+        })
+    }
 }
-function setupBot(){
-    bot.on("chat", (msg) => {
-        lastMsg = msg;
-    })
-}
-
-module.exports = {joinServer}
+// @ts-ignore
+globalThis.mi = new Minepress;
+export type {Minepress};
