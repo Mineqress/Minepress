@@ -15,7 +15,6 @@
     "noImplicitThis": true,
     "skipDefaultLibCheck": true,
     "skipLibCheck": true,
-    "isolatedModules": true,
     "declaration": true,
     "declarationMap": true
   }

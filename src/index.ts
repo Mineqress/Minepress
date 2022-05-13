@@ -1,5 +1,5 @@
-/// <reference types="jest"/>
-import { Bot, BotOptions, createBot } from "mineflayer"
+/// <reference types="mocha"/>
+import { Bot, BotEvents, BotOptions, createBot } from "mineflayer"
 import { Chance } from "chance";
 const chance = new Chance();
 type What = "last.message"
@@ -29,27 +29,38 @@ class Minepress {
     }
 
     private setupBot() {
-        this.bot!!.on("chat", (msg) => {
-            this.lastMsg = msg;
+        this.bot!!.on("message", (jsonMsg, position) => {
+            this.lastMsg = jsonMsg.toString();
+        })
+    }
+    private waitForEvent(event: keyof BotEvents){
+        return new Promise<void>(resolve => {
+            this.bot?.once(event, () => {
+                resolve()
+            })
         })
     }
     expect(what: What) {
         let table = {
             "last.message": () => {
-                return expect(this.lastMsg);
+                return // expect (this.lastMsg);
             }
         }
         return table[what]();
     }
+    sendMessage(message: string){
+        this.bot!!.chat(message)
+        console.log(this.bot!!.chat);
+    }
+    sendCommand(command: string){
+        this.sendMessage("/" + command)
+        return this.waitForEvent("chat");
+    }
     quit() {
-        return new Promise<void>(resolve => {
-            this.bot?.once("end", () => {
-                resolve()
-            })
-            this.bot!!.quit()
-        })
+        this.bot!!.quit()
     }
 }
 // @ts-ignore
-globalThis.mi = new Minepress;
+global.mi = new Minepress;
+
 export type { Minepress };
