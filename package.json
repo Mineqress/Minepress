@@ -1,6 +1,6 @@
 {
   "name": "@minepress/minepress",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A E2E testing framework for minecraft",
   "repository": "https://github.com/Minpress/Minepress",
   "author": "Tiago Dinis <tiagodinis33@gmail.com>",
@@ -13,7 +13,7 @@
   "main": "build/cli/main.js",
   "types": "src/minepress.d.ts",
   "scripts": {
-  "dist": "tsc",
+    "dist": "tsc",
     "prepublish": "tsc"
   },
   "dependencies": {
