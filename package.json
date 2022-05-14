@@ -2,7 +2,6 @@
   "name": "@minepress/minepress",
   "version": "1.0.0",
   "description": "A E2E testing framework for minecraft",
-  "main": "build/index.js",
   "repository": "https://github.com/Minpress/Minepress",
   "author": "Tiago Dinis <tiagodinis33@gmail.com>",
   "license": "MIT",
@@ -11,7 +10,10 @@
     ".": "./build/index.js"
   },
   "bin": "build/cli/main.js",
+  "main": "build/cli/main.js",
+  "types": "src/minepress.d.ts",
   "scripts": {
+  "dist": "tsc",
     "prepublish": "tsc"
   },
   "dependencies": {
@@ -19,7 +21,8 @@
     "@types/mocha": "^9.1.1",
     "chance": "^1.1.8",
     "mineflayer": "^4.3.0",
-    "mocha": "^10.0.0"
+    "mocha": "^10.0.0",
+    "@minepress/minexpect": "./minexpect"
   },
   "devDependencies": {
     "@types/node": "^17.0.21",
