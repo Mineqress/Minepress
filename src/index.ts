@@ -15,7 +15,7 @@ class Minepress {
             if (!this.bot) {
                 this.bot = createBot({
                     ...server,
-                    username: chance.name().replace(" ", "").substring(0, 16)
+                    username: server.username || chance.name().replace(" ", "").substring(0, 16)
                 })
                 this.setupBot()
             } else {

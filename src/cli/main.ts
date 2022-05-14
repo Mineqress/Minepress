@@ -4,7 +4,15 @@ import * as path from "path"
 import * as Mocha from "mocha";
 import "../"
 import { Chance } from "chance";
-
+interface Config {
+    server?: {
+        host: string,
+        port: number
+    },
+    username?: string,
+    password?: string,
+    loginType?: "mojang" | "microsoft"
+}
 (async () => {
     // Instantiate a Mocha instance.
     var mocha = new Mocha();
@@ -22,11 +30,20 @@ import { Chance } from "chance";
             path.join(testDir, file)
         );
     });
-
+    let config: Config;
+    if(fs.existsSync("./minepress.json")){
+        console.log("[INFO] 'minepress.json' detected! Using it.")
+        config = JSON.parse(fs.readFileSync("./minepress.json", "utf-8").toString());
+    } else {
+        config = {};
+    }
     await mi.joinServer({
-        username: new Chance().name().replace(" ", ""),
-        host: "localhost",
-        port: 25565
+        username: config.username || new Chance().name().replace(" ", ""),
+        host: config.server?.host || "localhost",
+        port: config.server?.port || 25565,
+        auth: config.loginType,
+        password: config.password,
+
     })
     // Run the tests.
     mocha.run(function (failures) {
