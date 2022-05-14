@@ -30,10 +30,7 @@ import { Chance } from "chance";
     })
     // Run the tests.
     mocha.run(function (failures) {
+        mi.quit()
         process.exitCode = failures ? 1 : 0;  // exit with non-zero status if there were failures
     });
-    // Give some time for it to send some packets before leaving
-    setTimeout(() => {
-        mi.quit()
-    }, 500)
 })()
