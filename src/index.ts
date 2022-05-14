@@ -48,7 +48,7 @@ class Minepress {
                 return new Expect(this.lastMsg, (retry) => {
                     this.bot?.on("messagestr", retry);
                 }, (retry) => {
-                    this.bot?.removeListener("chat", retry)
+                    this.bot?.removeListener("messagestr", retry)
                 });
             }
         }
