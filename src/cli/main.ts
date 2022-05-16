@@ -45,6 +45,8 @@ interface Config {
         password: config.password,
 
     })
+    // @ts-ignore
+    global.Item = require("prismarine-item")(mi.bot.version)
     // Run the tests.
     mocha.run(function (failures) {
         mi.quit()

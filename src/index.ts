@@ -3,12 +3,42 @@ import { Bot, BotEvents, BotOptions, createBot } from "mineflayer"
 import { Chance } from "chance";
 import { Expect } from "@minepress/minexpect";
 import { Item } from "prismarine-item";
-
+import { isEqual } from "lodash";
 const chance = new Chance();
 type What = "last.message" | "hotbar.slot" | "hand.item.type" | "hand.item.displayname" | "hand.item.amount"
-
+class Inventory {
+    bot: Bot
+    constructor(bot: Bot){
+        this.bot = bot;
+    }
+    async contains(item: Item){
+        const containsItem = () => {
+            let contains = false;
+            this.bot.inventory.slots.forEach((i) => {
+                if(
+                    // @ts-ignore
+                    global.Item
+                    .equal(i, item, true)){
+                    contains = true
+                }
+            })
+            return contains;
+        }
+        const inv = this.bot!!.inventory;
+        let cb: (slot: number, _: Item, newItem: Item) => void;
+        await new Expect(containsItem(), (retry) => {
+            cb = (slot, _, newItem) => {
+                retry(containsItem())
+            };
+            inv.on("updateSlot", cb)
+        }, (retry) => {
+            inv.removeListener("updateSlot", cb);
+        }, 5000).toBe(true)
+    }
+}
 class Minepress {
-
+    /* Export the item class */
+    inventory: Inventory | null = null;
     private bot?: Bot;
     private lastMsg?: string;
     joinServer(server: BotOptions) {
@@ -23,6 +53,7 @@ class Minepress {
                 this.bot.connect(server);
             }
             this.bot.once("spawn", () => {
+                this.inventory = new Inventory(this.bot!!)
                 resolve()
             })
             this.bot.once("error", (e) => {
