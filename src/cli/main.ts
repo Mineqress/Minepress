@@ -47,9 +47,14 @@ interface Config {
     })
     // @ts-ignore
     global.Item = require("prismarine-item")(mi.bot.version)
+    mocha.timeout(60000);
+    
     // Run the tests.
     mocha.run(function (failures) {
         mi.quit()
-        process.exitCode = failures ? 1 : 0;  // exit with non-zero status if there were failures
+        process.exit(failures ? 1 : 0)
+    }).on("fail", (test, err) => {
+        // @ts-ignore
+        test.err.uncaught = false;
     });
 })()
