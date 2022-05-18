@@ -4,6 +4,17 @@ The minecraft testing framework
 # What's this?
 Minepress allows you to make a minecraft bot which you can control
 and make assertions of what it sees
+
+# How to use
+You just need to create a folder called `minepress`  
+All files ending in `*.test.js` will be recognized by minepress
+```console
+ > npm install @minepress/minepress
+ # If you're using npm
+ > ./node_modules/.bin/minepress
+ # If you're using pnpm or yarn
+ > <package manager> minepress 
+```
 # Libraries
  - [Mineflayer](https://github.com/PrismarineJS/mineflayer): This is the main library of the project, it is an stable api for creating minecraft bots on javascript, which works on all versions. It's part of the Prismarine project
  - [MochaJS](https://github.com/mochajs/mocha): Test runner, without its flexible api it wouldn't be possible to make this project
