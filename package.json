@@ -1,6 +1,6 @@
 {
   "name": "@minepress/minepress",
-  "version": "1.0.1",
+  "version": "0.1.0",
   "description": "A E2E testing framework for minecraft",
   "repository": "https://github.com/Minpress/Minepress",
   "author": "Tiago Dinis <tiagodinis33@gmail.com>",
@@ -17,7 +17,7 @@
     "prepublish": "tsc"
   },
   "dependencies": {
-    "@minepress/minexpect": "0.2.3",
+    "@minepress/minexpect": "0.3.0",
     "@types/lodash": "^4.14.182",
     "chance": "^1.1.8",
     "lodash": "^4.17.21",
