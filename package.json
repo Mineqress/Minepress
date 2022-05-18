@@ -1,6 +1,6 @@
 {
   "name": "@minepress/minepress",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "A E2E testing framework for minecraft",
   "repository": "https://github.com/Minpress/Minepress",
   "author": "Tiago Dinis <tiagodinis33@gmail.com>",
