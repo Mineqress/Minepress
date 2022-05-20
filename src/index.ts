@@ -31,10 +31,7 @@ class Inventory {
         const containsItem = () => {
             let contains = false;
             this.bot.currentWindow?.slots.forEach((i) => {
-                if(
-                    // @ts-ignore
-                    global.Item
-                    .equal(i, item, true)){
+                if(Item.equal(i, item, true)){
                     contains = true
                 }
             })
@@ -53,14 +50,11 @@ class Inventory {
             inv?.removeListener("updateSlot", cb);
         }, 5000).toBe(true)
     }
-    async contains(item: Item){
+    async contains(item: Item, options?: {ignoreAmount: boolean}){
         const containsItem = () => {
             let contains = false;
             this.bot.inventory.slots.forEach((i) => {
-                if(
-                    // @ts-ignore
-                    global.Item
-                    .equal(i, item, true)){
+                if(Item.equal(i, item, options? options.ignoreAmount: true)){
                     contains = true
                 }
             })
