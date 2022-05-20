@@ -14,7 +14,8 @@
   "types": "src/minepress.d.ts",
   "scripts": {
     "dist": "tsc",
-    "prepublish": "tsc"
+    "prepublish": "tsc",
+    "tsc:w": "tsc --watch"
   },
   "dependencies": {
     "@minepress/minexpect": "0.3.0",
