@@ -1,11 +1,11 @@
-lockfileVersion: 5.4
+lockfileVersion: 5.3
 
 specifiers:
-  '@minepress/minexpect': ../minexpect
+  '@minepress/minexpect': 0.4.0
   '@types/chance': ^1.1.3
   '@types/lodash': ^4.14.182
   '@types/mocha': ^9.1.1
-  '@types/node': ^17.0.21
+  '@types/node': ^17.0.31
   chance: ^1.1.8
   lodash: ^4.17.21
   mineflayer: ^4.3.0
@@ -14,7 +14,7 @@ specifiers:
   typescript: ^4.6.4
 
 dependencies:
-  '@minepress/minexpect': link:../minexpect
+  '@minepress/minexpect': 0.4.0
   '@types/lodash': 4.14.182
   chance: 1.1.8
   lodash: 4.17.21
@@ -47,6 +47,12 @@ packages:
     transitivePeerDependencies:
       - debug
       - supports-color
+    dev: false
+
+  /@minepress/minexpect/0.4.0:
+    resolution: {integrity: sha512-tX/YaLfz/VZsOoi+sop2Mam7YzfW6M4RPIsDVE9QK2TF2KFPjSxQXZC7+YiqdmI1ujSwuVIcsmerSL0G+gSWjA==}
+    dependencies:
+      typescript: 4.6.4
     dev: false
 
   /@types/chance/1.1.3:
@@ -609,7 +615,7 @@ packages:
     dependencies:
       minecraft-data: 3.1.1
       minecraft-protocol: 1.34.0
-      prismarine-biome: 1.3.0_vsiaxabcnjdtsb7sh4umxqby2a
+      prismarine-biome: 1.3.0_ac900b80226a473907f23f28cbc038d0
       prismarine-block: 1.16.3
       prismarine-chat: 1.6.1
       prismarine-chunk: 1.31.0
@@ -778,7 +784,7 @@ packages:
       - supports-color
     dev: false
 
-  /prismarine-biome/1.3.0_vsiaxabcnjdtsb7sh4umxqby2a:
+  /prismarine-biome/1.3.0_ac900b80226a473907f23f28cbc038d0:
     resolution: {integrity: sha512-GY6nZxq93mTErT7jD7jt8YS1aPrOakbJHh39seYsJFXvueIOdHAmW16kYQVrTVMW5MlWLQVxV/EquRwOgr4MnQ==}
     peerDependencies:
       minecraft-data: ^3.0.0
@@ -792,7 +798,7 @@ packages:
     resolution: {integrity: sha512-E9OazjIqnEgcXM6me6EIeQFMcNRWZzsaftWtetRSIKVoW+4UKWleb6lTNKh9kq7wNxciKavcYBmKL3sF7HfSaA==}
     dependencies:
       minecraft-data: 3.1.1
-      prismarine-biome: 1.3.0_vsiaxabcnjdtsb7sh4umxqby2a
+      prismarine-biome: 1.3.0_ac900b80226a473907f23f28cbc038d0
       prismarine-chat: 1.6.1
       prismarine-item: 1.11.5
       prismarine-nbt: 2.2.1
@@ -814,7 +820,7 @@ packages:
     engines: {node: '>=14'}
     dependencies:
       minecraft-data: 3.1.1
-      prismarine-biome: 1.3.0_vsiaxabcnjdtsb7sh4umxqby2a
+      prismarine-biome: 1.3.0_ac900b80226a473907f23f28cbc038d0
       prismarine-block: 1.16.3
       prismarine-registry: 1.2.0
       smart-buffer: 4.2.0
@@ -1032,7 +1038,6 @@ packages:
     resolution: {integrity: sha512-9ia/jWHIEbo49HfjrLGfKbZSuWo9iTMwXO+Ca3pRsSpbsMbc7/IU8NKdCZVRRBafVPGnoJeFL76ZOAA84I9fEg==}
     engines: {node: '>=4.2.0'}
     hasBin: true
-    dev: true
 
   /uint4/0.1.2:
     resolution: {integrity: sha1-UMWuBLhdKBKPLfPMDsxNQavC9oE=}
