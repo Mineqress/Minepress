@@ -10,7 +10,7 @@ class Inventory {
     constructor(bot: Bot){
         this.bot = bot;
     }
-    async expect(what: "hasOpenWindow"){
+    expect(what: "hasOpenWindow"){
         let openCb: () => void
         let closeCb: () => void
         return new Expect(this.bot.currentWindow != null, (retry) => {
