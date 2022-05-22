@@ -4,7 +4,7 @@
   "description": "A E2E testing framework for minecraft",
   "repository": "https://github.com/Minpress/Minepress",
   "author": "Tiago Dinis <tiagodinis33@gmail.com>",
-  "license": "MIT",
+  "license": "GPL-3.0",
   "private": false,
   "exports": {
     ".": "./build/index.js"
