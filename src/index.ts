@@ -195,7 +195,6 @@ class Minepress {
     }
     sendCommand(command: string){
         this.sendMessage("/" + command)
-        return this.waitForEvent("chat");
     }
     quit() {
         this.bot!!.quit()
