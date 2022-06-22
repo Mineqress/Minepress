@@ -1,0 +1,11 @@
+image:
+  file: .gitpod.Dockerfile
+tasks:
+  - name: Build Project
+    init: pnpm install
+    command: pnpm tsc:w
+  - name: "Create Server"
+    init: scripts/build_server.sh
+    command: cd server && java -jar server.jar
+
+
