@@ -7,5 +7,8 @@ tasks:
   - name: "Create Server"
     init: scripts/build_server.sh
     command: cd server && java -jar server.jar
+ports:
+  - port: 25565
+    visibility: private
 
 
