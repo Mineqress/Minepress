@@ -1,5 +1,6 @@
 # MinePress
 The minecraft testing framework
+
 ![Imgur](https://i.imgur.com/3nd2ASc.png)
 # What's this?
 Minepress allows you to make a minecraft bot which you can control
@@ -22,4 +23,4 @@ All files ending in `*.test.js` will be recognized by minepress
 # Why?
 When i'm developing minecraft plugins, whenever i change something, i need recompile and do a bunch of crazy and repetitive things on the client, **i just need something to automate this**. its so exhausting and, also, if i'm doing it on recent versions of minecraft like 1.15-1.18, my pc **cries** with 4GB of ram
 
-i just want to type a command and it tests everything without making my fingers or my pc scream in pain
+I just want to type a command and it tests everything without making my fingers or my pc scream in pain
