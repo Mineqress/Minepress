@@ -22,7 +22,7 @@ export class Inventory {
         }, (retry) => {
             this.bot.removeListener("windowOpen", openCb);
             this.bot.removeListener("windowClose", closeCb);
-        }, 1990);
+        }, 5000);
     }
     async currentWindowContains(item: Item) {
         const containsItem = () => {
