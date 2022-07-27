@@ -16,7 +16,7 @@ async function main() {
     fs.readdirSync(MINEPRESS_FOLDER).filter((file) => {
 
         // Only keep the .js files
-        return file.substr(-3) === '.js';
+        return file.substring(file.length-3) === '.js';
 
     }).forEach(function (file) {
         mocha.addFile(
