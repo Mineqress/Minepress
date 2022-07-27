@@ -24,6 +24,7 @@
     "lodash": "^4.17.21",
     "mineflayer": "^4.3.0",
     "mocha": "^10.0.0",
+    "nodemon": "^2.0.19",
     "prismarine-item": "^1.11.5"
   },
   "devDependencies": {

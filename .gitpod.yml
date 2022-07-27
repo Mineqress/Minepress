@@ -7,6 +7,13 @@ tasks:
   - name: "Create Server"
     init: scripts/build_server.sh
     command: cd server && java -jar server.jar
+  - name: Run plugin nodemon
+    init: scripts/setup-testing-plugin.sh
+    command: |
+      while true
+      do
+        pnpm nodemon -w java,yaml,yml,json --exec scripts/compile-testing-plugin.sh
+      done
 ports:
   - port: 25565
     visibility: private
