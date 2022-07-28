@@ -4,7 +4,7 @@ import { Item } from "prismarine-item";
 import { Inventory } from "./Inventory";
 import { chance } from "./index";
 import {pathfinder, Movements, goals} from "mineflayer-pathfinder"
-import MinecraftData from "minecraft-data"
+import MinecraftData = require("minecraft-data")
 export type ThingToCheck = "last.message" | "hotbar.slot" | "hand.item.type" | "hand.item.displayname" | "hand.item.amount"
 const ITEM_CHECK_TIMEOUT = 5000;
 const LAST_MESSAGE_CHECK_TIMEOUT = 10000;
