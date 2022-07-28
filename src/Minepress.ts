@@ -124,12 +124,12 @@ export class Minepress {
     quit() {
         this.bot!!.quit();
     }
-    walkTo(position: {x: number, y: number, z: number}){
+    async walkTo(position: {x: number, y: number, z: number}){
         const bot = this.bot!!;
         const mcData = MinecraftData(bot.version)
         const defaultMove = new Movements(bot, mcData);
         defaultMove.scafoldingBlocks = mcData.blocksArray.map(block => block.id);
         bot.pathfinder.setMovements(defaultMove)
-        bot.pathfinder.setGoal(new goals.GoalBlock(position.x, position.y, position.z))
+        return bot.pathfinder.goto(new goals.GoalBlock(position.x, position.y, position.z))
     }
 }
