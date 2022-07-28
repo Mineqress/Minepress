@@ -1,4 +1,4 @@
-# MinePress
+# Minepress
 The minecraft testing framework
 
 ![Imgur](https://i.imgur.com/3nd2ASc.png)
