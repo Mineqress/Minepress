@@ -59,10 +59,10 @@ export class Minepress {
             case "hand.item.type": {
                 const inv = this.bot!!.inventory;
                 let cb: (slot: number, _: Item, newItem: Item) => void;
-                const item = inv.slots[this.bot!!.quickBarSlot];
+                const item = inv.slots[this.bot!!.quickBarSlot+36];
                 return new Expect(item ? item.type : 0, (retry) => {
                     cb = (slot, _, newItem) => {
-                        if (slot - 28 == this.bot!!.quickBarSlot) {
+                        if (slot - 36 == this.bot!!.quickBarSlot) {
                             retry(newItem.type);
                         }
                     };
@@ -75,10 +75,10 @@ export class Minepress {
             case "hand.item.displayname": {
                 const inv = this.bot!!.inventory;
                 let cb: (slot: number, _: Item, newItem: Item) => void;
-                const item = inv.slots[this.bot!!.quickBarSlot];
+                const item = inv.slots[this.bot!!.quickBarSlot+36];
                 return new Expect(item?.displayName, (retry) => {
                     cb = (slot, _, newItem) => {
-                        if (slot == this.bot!!.quickBarSlot) {
+                        if (slot-36 == this.bot!!.quickBarSlot) {
                             retry(newItem.displayName);
                         }
                     };
@@ -90,10 +90,10 @@ export class Minepress {
             case "hand.item.amount": {
                 const inv = this.bot!!.inventory;
                 let cb: (slot: number, _: Item, newItem: Item) => void;
-                const item = inv.slots[this.bot!!.quickBarSlot];
+                const item = inv.slots[this.bot!!.quickBarSlot+36];
                 return new Expect(item ? item.count : 0, (retry) => {
                     cb = (slot, _, newItem) => {
-                        if (slot - 28 == this.bot!!.quickBarSlot) {
+                        if (slot - 36 == this.bot!!.quickBarSlot) {
                             retry(newItem.count);
                         }
                     };
