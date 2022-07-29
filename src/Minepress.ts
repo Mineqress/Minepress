@@ -124,12 +124,12 @@ export class Minepress {
     quit() {
         this.bot!!.quit();
     }
-    async walkTo(options: {position: {x: number, y: number, z: number}, allowedScaffoldingBlocks?: number[]}){
+    async walkTo(options: {position: {x: number, y: number, z: number}, allowedScaffoldingBlocks?: number[], range?: number}){
         const bot = this.bot!!;
         const mcData = MinecraftData(bot.version)
         const defaultMove = new Movements(bot, mcData);
         defaultMove.scafoldingBlocks = options.allowedScaffoldingBlocks ?? mcData.blocksArray.map(block => block.id);
         bot.pathfinder.setMovements(defaultMove)
-        return bot.pathfinder.goto(new goals.GoalBlock(options.position.x, options.position.y, options.position.z))
+        return bot.pathfinder.goto(new goals.GoalNear(options.position.x, options.position.y, options.position.z, options.range ?? 3))
     }
 }
