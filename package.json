@@ -23,7 +23,9 @@
     "@types/lodash": "^4.14.182",
     "chance": "^1.1.8",
     "lodash": "^4.17.21",
+    "minecraft-data": "^3.9.1",
     "mineflayer": "^4.3.0",
+    "mineflayer-pathfinder": "^2.2.0",
     "mocha": "^10.0.0",
     "nodemon": "^2.0.19",
     "prismarine-item": "^1.11.5"

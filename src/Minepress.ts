@@ -3,8 +3,9 @@ import { Expect } from "@minepress/minexpect";
 import { Item } from "prismarine-item";
 import { Inventory } from "./Inventory";
 import { chance } from "./index";
+import {pathfinder, Movements, goals} from "mineflayer-pathfinder"
+import MinecraftData = require("minecraft-data")
 export type ThingToCheck = "last.message" | "hotbar.slot" | "hand.item.type" | "hand.item.displayname" | "hand.item.amount"
-
 const ITEM_CHECK_TIMEOUT = 5000;
 const LAST_MESSAGE_CHECK_TIMEOUT = 10000;
 export class Minepress {
@@ -37,6 +38,7 @@ export class Minepress {
         this.bot!!.on("messagestr", (msg, position) => {
             this.lastMsg = msg;
         });
+        this.bot!!.loadPlugin(pathfinder)
     }
     expect(what: ThingToCheck) {
         switch (what) {
@@ -121,5 +123,13 @@ export class Minepress {
     }
     quit() {
         this.bot!!.quit();
+    }
+    async walkTo(options: {position: {x: number, y: number, z: number}, allowedScaffoldingBlocks?: number[], range?: number}){
+        const bot = this.bot!!;
+        const mcData = MinecraftData(bot.version)
+        const defaultMove = new Movements(bot, mcData);
+        defaultMove.scafoldingBlocks = options.allowedScaffoldingBlocks ?? mcData.blocksArray.map(block => block.id);
+        bot.pathfinder.setMovements(defaultMove)
+        return bot.pathfinder.goto(new goals.GoalNear(options.position.x, options.position.y, options.position.z, options.range ?? 3))
     }
 }
