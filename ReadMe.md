@@ -1,10 +1,17 @@
 # Minepress
 The minecraft testing framework
 
-![Imgur](https://i.imgur.com/3nd2ASc.png)
+<img 
+ alt="minepress-logo" 
+ src="https://user-images.githubusercontent.com/92828847/182001652-9cef6a3c-0d89-4d71-8a3f-7683e43efcf2.png" 
+ width="200"
+/>
+
 # What's this?
 Minepress allows you to make a minecraft bot which you can control
 and make assertions of what it sees
+
+![Imgur](https://i.imgur.com/3nd2ASc.png)
 
 # How to use
 You just need to create a folder called `minepress`  
